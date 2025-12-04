@@ -19,11 +19,15 @@ export function showStats(player){
 export function askRiddle(riddleObj){
     let answer = null
     while(answer != riddleObj.correctAnswer){
-    console.log(`name: ${riddleObj.name} ,taskDescription: ${riddleObj.taskDescription}`);
+    if ('choice' in riddleObj)
+        console.log(`name: ${riddleObj.name} ,taskDescription: ${riddleObj.taskDescription} ,choice: ${riddleObj.choice}`);
+    else{
+        console.log(`name: ${riddleObj.name} ,taskDescription: ${riddleObj.taskDescription}`);
+    }
     answer = input()
+} 
     }
 
-}
 
 export function measureSolveTime(fn,obj){
     const start_time = (Date.now())/1000;
